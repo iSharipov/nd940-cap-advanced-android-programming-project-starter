@@ -24,7 +24,7 @@ class VoterInfoFragment : Fragment() {
 
         //TODO: Handle save button UI state
         //TODO: cont'd Handle save button clicks
-
+        TODO("Not yet implemented")
     }
 
     //TODO: Create method to load URL intents

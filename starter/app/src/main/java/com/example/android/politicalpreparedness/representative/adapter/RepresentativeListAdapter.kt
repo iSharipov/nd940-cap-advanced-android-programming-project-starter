@@ -5,6 +5,7 @@ import android.content.Intent.ACTION_VIEW
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
@@ -29,9 +30,19 @@ class RepresentativeListAdapter: ListAdapter<Representative, RepresentativeViewH
 
 class RepresentativeViewHolder(val binding: ViewholderRepresentativeBinding): RecyclerView.ViewHolder(binding.root) {
 
+    companion object {
+        fun from(parent: ViewGroup): RepresentativeViewHolder {
+            LayoutInflater.from(parent.context).also { layoutInflater ->
+                ViewholderRepresentativeBinding.inflate(layoutInflater).also { binding ->
+                    return RepresentativeViewHolder(binding)
+                }
+            }
+        }
+    }
+
     fun bind(item: Representative) {
         binding.representative = item
-        binding.representativePhoto.setImageResource(R.drawable.ic_profile)
+        requireNotNull(binding.representativePhoto).setImageResource(R.drawable.ic_profile)
 
         //TODO: Show social links ** Hint: Use provided helper methods
         //TODO: Show www link ** Hint: Use provided helper methods
@@ -43,14 +54,14 @@ class RepresentativeViewHolder(val binding: ViewholderRepresentativeBinding): Re
 
     private fun showSocialLinks(channels: List<Channel>) {
         val facebookUrl = getFacebookUrl(channels)
-        if (!facebookUrl.isNullOrBlank()) { enableLink(binding.facebookIcon, facebookUrl) }
+        if (!facebookUrl.isNullOrBlank()) { enableLink(requireNotNull(binding.facebookIcon), facebookUrl) }
 
         val twitterUrl = getTwitterUrl(channels)
-        if (!twitterUrl.isNullOrBlank()) { enableLink(binding.twitterIcon, twitterUrl) }
+        if (!twitterUrl.isNullOrBlank()) { enableLink(requireNotNull(binding.twitterIcon), twitterUrl) }
     }
 
     private fun showWWWLinks(urls: List<String>) {
-        enableLink(binding.wwwIcon, urls.first())
+        enableLink(requireNotNull(binding.wwwIcon), urls.first())
     }
 
     private fun getFacebookUrl(channels: List<Channel>): String? {
@@ -79,5 +90,18 @@ class RepresentativeViewHolder(val binding: ViewholderRepresentativeBinding): Re
 }
 
 //TODO: Create RepresentativeDiffCallback
+class RepresentativeDiffCallback : DiffUtil.ItemCallback<Representative>() {
+    override fun areItemsTheSame(oldItem: Representative, newItem: Representative): Boolean {
+        TODO("Not yet implemented")
+    }
 
+    override fun areContentsTheSame(oldItem: Representative, newItem: Representative): Boolean {
+        TODO("Not yet implemented")
+    }
+}
 //TODO: Create RepresentativeListener
+class RepresentativeListener : OnClickListener {
+    override fun onClick(v: View?) {
+        TODO("Not yet implemented")
+    }
+}
