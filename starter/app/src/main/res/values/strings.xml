@@ -4,6 +4,8 @@
     <string name="upcoming_elections_button">UPCOMING ELECTIONS</string>
     <string name="find_my_representatives_button">FIND MY REPRESENTATIVES</string>
     <string name="elections_logo">elections logo</string>
+    <string name="upcoming_elections_header">Upcoming Elections</string>
+    <string name="saved_elections_header">Saved Elections</string>
 
     <!-- TODO: Add necessary string values -->
 

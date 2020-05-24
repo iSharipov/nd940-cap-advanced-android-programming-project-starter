@@ -10,5 +10,9 @@
     </style>
 
     <!-- TODO: Add necessary styles -->
-
+    <style name="ElectionsHeaders">
+        <item name="android:textColor">#6F6E6F</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>
