@@ -7,5 +7,10 @@ import kotlinx.android.parcel.Parcelize
 data class Division(
         val id: String,
         val country: String,
+        val district: String,
         val state: String
-) : Parcelable
+) : Parcelable {
+        fun division(): String {
+                return country + "," + if (district.isEmpty()) state else district
+        }
+}

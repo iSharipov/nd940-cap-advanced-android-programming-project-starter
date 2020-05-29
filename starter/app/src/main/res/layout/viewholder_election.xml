@@ -8,6 +8,11 @@
             name="election"
             type="com.example.android.politicalpreparedness.network.models.Election"
             />
+
+        <variable
+            name="onElectionClickListener"
+            type="com.example.android.politicalpreparedness.election.adapter.ElectionClickListener"
+            />
     </data>
 
     <LinearLayout
@@ -19,6 +24,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:onClick="@{() -> onElectionClickListener.onItemClicked(election)}"
         >
 
         <TextView

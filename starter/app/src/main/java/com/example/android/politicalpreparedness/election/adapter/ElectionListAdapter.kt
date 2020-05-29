@@ -1,8 +1,6 @@
 package com.example.android.politicalpreparedness.election.adapter
 
 import android.view.LayoutInflater
-import android.view.View
-import android.view.View.OnClickListener
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
@@ -12,7 +10,7 @@ import com.example.android.politicalpreparedness.R
 import com.example.android.politicalpreparedness.databinding.ViewholderElectionBinding
 import com.example.android.politicalpreparedness.network.models.Election
 
-class ElectionListAdapter(private val clickListener: ElectionListener) :
+class ElectionListAdapter(private val electionClickListener: ElectionClickListener) :
     ListAdapter<Election, ElectionViewHolder>(ElectionDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ElectionViewHolder {
@@ -22,6 +20,7 @@ class ElectionListAdapter(private val clickListener: ElectionListener) :
     override fun onBindViewHolder(holder: ElectionViewHolder, position: Int) {
         getItem(position).also {
             holder.viewholderElectionBinding.election = it
+            holder.viewholderElectionBinding.onElectionClickListener = electionClickListener
             holder.viewholderElectionBinding.executePendingBindings()
         }
     }
@@ -51,8 +50,6 @@ class ElectionDiffCallback: DiffUtil.ItemCallback<Election>() {
 }
 
 //TODO: Create ElectionListener
-class ElectionListener: OnClickListener {
-    override fun onClick(v: View?) {
-        TODO("Not yet implemented")
-    }
+class ElectionClickListener(private val listener: (election: Election) -> Unit) {
+    fun onItemClicked(election: Election) = listener(election)
 }
