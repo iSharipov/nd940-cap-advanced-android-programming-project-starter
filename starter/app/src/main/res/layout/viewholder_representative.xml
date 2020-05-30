@@ -1,26 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
     <data>
+
         <variable
             name="representative"
             type="com.example.android.politicalpreparedness.representative.model.Representative"
-            />
-        <variable
-            name="representativePhoto"
-            type="android.widget.ImageView"
-            />
-        <variable
-            name="facebookIcon"
-            type="android.widget.ImageView"
-            />
-        <variable
-            name="twitterIcon"
-            type="android.widget.ImageView"
-            />
-        <variable
-            name="wwwIcon"
-            type="android.widget.ImageView"
             />
     </data>
 
@@ -29,5 +16,84 @@
         android:layout_height="match_parent"
         >
 
+        <ImageView
+            android:id="@+id/representative_photo"
+            profileImage="@{representative.official.photoUrl}"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:contentDescription="@string/representative_photo"
+            android:src="@drawable/ic_profile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{representative.office.name}"
+            app:layout_constraintStart_toEndOf="@+id/representative_photo"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/representative_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{representative.official.name}"
+            app:layout_constraintStart_toEndOf="@+id/representative_photo"
+            app:layout_constraintTop_toBottomOf="@id/position"
+            />
+
+        <TextView
+            android:id="@+id/party"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{representative.official.party}"
+            app:layout_constraintStart_toEndOf="@+id/representative_photo"
+            app:layout_constraintTop_toBottomOf="@id/representative_name"
+            />
+
+        <ImageView
+            android:id="@+id/web"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="304dp"
+            android:layout_marginTop="36dp"
+            android:contentDescription="@string/web_icon"
+            android:src="@drawable/ic_www"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/position"
+            />
+
+        <ImageView
+            android:id="@+id/facebook"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="36dp"
+            android:contentDescription="@string/facebook_icon"
+            android:src="@drawable/ic_facebook"
+            android:visibility="invisible"
+            app:layout_constraintStart_toEndOf="@+id/web"
+            app:layout_constraintTop_toTopOf="@+id/position"
+            />
+
+        <ImageView
+            android:id="@+id/twitter"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="36dp"
+            android:contentDescription="@string/twitter_icon"
+            android:src="@drawable/ic_twitter"
+            android:visibility="invisible"
+            app:layout_constraintStart_toEndOf="@id/facebook"
+            app:layout_constraintTop_toTopOf="@+id/position"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
