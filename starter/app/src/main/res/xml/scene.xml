@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <Transition
+        app:constraintSetEnd="@+id/end"
+        app:constraintSetStart="@+id/start"
+        >
+        <OnSwipe
+            app:dragDirection="dragUp"
+            app:onTouchUp="stop"
+            app:touchAnchorId="@+id/search_title"
+            />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/search_title"
+            style="@style/ElectionsHeaders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/representative_search"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <Constraint
+            android:id="@+id/address_line_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:hint="@string/address_line_1"
+            android:inputType="textPostalAddress"
+            android:text="@{address.line1}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/search_title"
+            />
+
+        <Constraint
+            android:id="@+id/address_line_2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zero_dimension"
+            android:autofillHints=""
+            android:hint="@string/address_line_2"
+            android:inputType="textPostalAddress"
+            android:text="@{address.line2}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/address_line_1"
+            />
+
+        <Constraint
+            android:id="@+id/city"
+            android:layout_width="@dimen/zero_dimension"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:hint="@string/city"
+            android:inputType="textPostalAddress"
+            android:text="@{address.city}"
+            app:layout_constraintEnd_toStartOf="@id/state"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/address_line_2"
+            />
+
+        <Constraint
+            android:id="@+id/zip"
+            android:layout_width="@dimen/zero_dimension"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:hint="@string/zip"
+            android:inputType="number"
+            android:maxLength="5"
+            android:text="@{address.zip}"
+            app:layout_constraintEnd_toEndOf="@id/city"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/city"
+            />
+
+        <Constraint
+            android:id="@+id/button_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/find_my_representatives_button"
+            app:layout_constraintTop_toBottomOf="@id/zip"
+            />
+
+        <Constraint
+            android:id="@+id/button_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/use_my_location"
+            app:layout_constraintTop_toBottomOf="@id/button_search"
+            />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/search_title"
+            style="@style/ElectionsHeaders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/representative_search"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+        <Constraint
+            android:id="@+id/address_line_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:hint="@string/address_line_1"
+            android:inputType="textPostalAddress"
+            android:text="@{address.line1}"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <Constraint
+            android:id="@+id/address_line_2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zero_dimension"
+            android:autofillHints=""
+            android:hint="@string/address_line_2"
+            android:inputType="textPostalAddress"
+            android:text="@{address.line2}"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <Constraint
+            android:id="@+id/city"
+            android:layout_width="@dimen/zero_dimension"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:hint="@string/city"
+            android:inputType="textPostalAddress"
+            android:text="@{address.city}"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <Constraint
+            android:id="@+id/zip"
+            android:layout_width="@dimen/zero_dimension"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:hint="@string/zip"
+            android:inputType="number"
+            android:maxLength="5"
+            android:text="@{address.zip}"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+        <Constraint
+            android:id="@+id/button_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/find_my_representatives_button"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <Constraint
+            android:id="@+id/button_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/use_my_location"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+    </ConstraintSet>
+
+</MotionScene>
