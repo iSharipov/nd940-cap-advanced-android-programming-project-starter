@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="default_padding">8dp</dimen>
+    <dimen name="fragment_election_padding">10dp</dimen>
+    <dimen name="upcoming_elections_list_margin_top">10dp</dimen>
+    <dimen name="saved_elections_margin_top">50dp</dimen>
+    <dimen name="saved_elections_list_margin_top">10dp</dimen>
+    <dimen name="zero_dimension">0dp</dimen>
+    <dimen name="fragment_voter_info_button_margin_bottom">28dp</dimen>
+    <dimen name="fragment_voter_info_button_margin_end">24dp</dimen>
+    <dimen name="fragment_voter_info_button_margin_start">24dp</dimen>
+    <dimen name="viewholder_election_layout_margin_bottom">10dp</dimen>
+    <dimen name="viewholder_election_election_name_text_size">15sp</dimen>
+    <dimen name="representative_photo_size">64dp</dimen>
+    <dimen name="representative_margin_start">8dp</dimen>
+    <dimen name="icon_size">24dp</dimen>
+    <dimen name="icon_margin_top">36dp</dimen>
+    <dimen name="web_icon_margin_start">304dp</dimen>
+    <dimen name="fragment_launch_button_margin_start">24dp</dimen>
+    <dimen name="fragment_launch_button_margin_end">24dp</dimen>
+    <dimen name="fragment_launch_button_margin_bottom">28dp</dimen>
 
     <!-- TODO: Add necessary dimension values -->s
 

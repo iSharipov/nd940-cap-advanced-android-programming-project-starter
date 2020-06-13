@@ -64,7 +64,7 @@
             android:layout_margin="@dimen/default_padding"
             app:layout_constraintTop_toBottomOf="@id/election_name"
             android:text="@{election.electionDay.toString()}"
-            tools:text="12 November 2055"
+            tools:text="@string/election_date"
             />
 
         <!-- TODO: Add visual styling and content -->
@@ -131,12 +131,12 @@
         <Button
             android:id="@+id/voterInfoButton"
             style="?android:attr/borderlessButtonStyle"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zero_dimension"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="28dp"
-            android:background="#38495c"
+            android:layout_marginStart="@dimen/fragment_voter_info_button_margin_start"
+            android:layout_marginEnd="@dimen/fragment_voter_info_button_margin_end"
+            android:layout_marginBottom="@dimen/fragment_voter_info_button_margin_bottom"
+            android:background="@color/oxfordBlue"
             android:onClick="@{() -> followElection.followElection(election)}"
             android:text="@{isFollowed ? @string/unfollow_election : @string/follow_election}"
             android:textColor="@color/white"

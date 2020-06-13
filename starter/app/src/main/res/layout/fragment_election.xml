@@ -14,9 +14,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingStart="10dp"
-        android:paddingTop="10dp"
-        android:paddingEnd="10dp"
+        android:paddingStart="@dimen/fragment_election_padding"
+        android:paddingTop="@dimen/fragment_election_padding"
+        android:paddingEnd="@dimen/fragment_election_padding"
         tools:context="com.example.android.politicalpreparedness.MainActivity"
         >
 
@@ -50,7 +50,7 @@
                 android:id="@+id/upcomingElections"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/upcoming_elections_list_margin_top"
                 app:layout_constraintTop_toBottomOf="@id/upcomingElectionsHeader"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -59,7 +59,7 @@
             android:id="@+id/constraintLayout4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="@dimen/saved_elections_margin_top"
             android:orientation="vertical"
             app:layout_constraintTop_toBottomOf="@id/linearLayout2"
             >
@@ -79,7 +79,7 @@
                 android:id="@+id/savedElections"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/saved_elections_list_margin_top"
                 app:layout_constraintTop_toBottomOf="@id/savedElectionsHeader"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,6 +22,7 @@
     <string name="address_line_2">Address Line 2</string>
     <string name="city">City</string>
     <string name="zip">Zip</string>
+    <string name="election_date">12 November 2055</string>
 
     <!-- TODO: Add necessary string values -->
 
