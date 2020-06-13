@@ -6,11 +6,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.example.android.politicalpreparedness.databinding.FragmentVoterInfoBinding
+import com.example.android.politicalpreparedness.network.Utils
 import com.example.android.politicalpreparedness.network.models.Election
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -72,7 +74,11 @@ class VoterInfoFragment : Fragment() {
         })
 
         CoroutineScope(Dispatchers.Main).launch {
-            viewModel.loadVoterInfo(args.argDivision.division(), args.argElectionId)
+            if (Utils.isNetworkAvailable(requireContext())) {
+                viewModel.loadVoterInfo(args.argDivision.division(), args.argElectionId)
+            }else{
+                Toast.makeText(requireContext(), "Sorry, you're not a winner", Toast.LENGTH_SHORT).show()
+            }
             viewModel.isFollowed(args.argElectionId)
         }
     }

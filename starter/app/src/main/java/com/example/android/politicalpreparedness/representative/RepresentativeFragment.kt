@@ -1,6 +1,7 @@
 package com.example.android.politicalpreparedness.representative
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Geocoder
@@ -20,6 +21,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android.politicalpreparedness.R
 import com.example.android.politicalpreparedness.databinding.FragmentRepresentativeBinding
+import com.example.android.politicalpreparedness.network.Utils
 import com.example.android.politicalpreparedness.network.models.Address
 import com.example.android.politicalpreparedness.representative.adapter.RepresentativeListAdapter
 import com.google.android.gms.location.LocationServices
@@ -117,7 +119,11 @@ class DetailFragment : Fragment() {
 
     private fun checkLocationPermissions() {
         if (isPermissionGranted()) {
-            getLocation()
+            if(Utils.isNetworkAvailable(requireContext())){
+                getLocation()
+            }else{
+                Toast.makeText(requireContext(), "Sorry, you're not a winner", Toast.LENGTH_SHORT).show()
+            }
         } else {
             //TODO: Request Location permissions
             if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -139,6 +145,7 @@ class DetailFragment : Fragment() {
         return permissionState == PackageManager.PERMISSION_GRANTED
     }
 
+    @SuppressLint("MissingPermission")
     private fun getLocation() {
         //TODO: Get location from LocationServices
         //TODO: The geoCodeLocation method is a helper function to change the lat/long location to a human readable street address

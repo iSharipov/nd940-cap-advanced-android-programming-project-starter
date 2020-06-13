@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android.politicalpreparedness.databinding.FragmentElectionBinding
 import com.example.android.politicalpreparedness.election.adapter.ElectionClickListener
 import com.example.android.politicalpreparedness.election.adapter.ElectionListAdapter
+import com.example.android.politicalpreparedness.network.Utils.isNetworkAvailable
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -73,7 +74,9 @@ class ElectionsFragment: Fragment() {
             }
         })
         CoroutineScope(Dispatchers.Main).launch {
-            viewModel.loadUpcomingElections()
+            if (isNetworkAvailable(requireContext())) {
+                viewModel.loadUpcomingElections()
+            }
             viewModel.loadSavedElections()
         }
     }
