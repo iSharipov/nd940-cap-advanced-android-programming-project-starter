@@ -2,9 +2,11 @@ package com.example.android.politicalpreparedness.launch
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.android.politicalpreparedness.databinding.FragmentLaunchBinding
+import com.example.android.politicalpreparedness.network.Utils
 
 class LaunchFragment : Fragment() {
 
@@ -25,7 +27,11 @@ class LaunchFragment : Fragment() {
     }
 
     private fun navToRepresentatives() {
-        this.findNavController().navigate(LaunchFragmentDirections.actionLaunchFragmentToRepresentativeFragment())
+        if(Utils.isNetworkAvailable(requireContext())){
+            this.findNavController().navigate(LaunchFragmentDirections.actionLaunchFragmentToRepresentativeFragment())
+        }else{
+            Toast.makeText(requireContext(), "You’re offline. Check your connection.", Toast.LENGTH_SHORT).show()
+        }
     }
 
 }

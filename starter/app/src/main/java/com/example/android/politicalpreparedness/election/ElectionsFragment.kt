@@ -76,6 +76,8 @@ class ElectionsFragment: Fragment() {
         CoroutineScope(Dispatchers.Main).launch {
             if (isNetworkAvailable(requireContext())) {
                 viewModel.loadUpcomingElections()
+            }else{
+                Toast.makeText(requireContext(), "You’re offline. Only saved elections visible.", Toast.LENGTH_SHORT).show()
             }
             viewModel.loadSavedElections()
         }
