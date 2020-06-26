@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="default_padding">8dp</dimen>
+    <dimen name="scene_default_dimen">16dp</dimen>
     <dimen name="fragment_election_padding">10dp</dimen>
     <dimen name="upcoming_elections_list_margin_top">10dp</dimen>
     <dimen name="saved_elections_margin_top">50dp</dimen>
